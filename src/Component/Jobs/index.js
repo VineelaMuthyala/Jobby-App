@@ -163,10 +163,12 @@ class Jobs extends Component {
               placeholder="Search"
               className="input-search"
             />
-            <AiOutlineSearch />
+            <AiOutlineSearch className="search-icon" />
           </div>
           <div>
-            <JobDetailsList jobDetails={jobDetails} />
+            {jobDetails.map(eachItem => (
+              <JobDetailsList key={eachItem.id} jobDetailsItem={eachItem} />
+            ))}
           </div>
         </div>
       </div>
