@@ -55,10 +55,28 @@ class Jobs extends Component {
     jobDetails: [],
     profileDetails: '',
     apiStatus: apiStatusValues.initial,
+    inputValue: '',
   }
 
   componentDidMount() {
     this.getTheData()
+  }
+
+  onClickEmploymentList = event => {
+    console.log(event.target.id)
+  }
+
+  onChangeSearchValue = event => {
+    const searchInput = event.target.value
+    this.setState({inputValue: searchInput})
+  }
+
+  onClickSearchButton = () => {
+    const {inputValue, jobDetails} = this.state
+    const filteredList = jobDetails.filter(
+      eachItem => eachItem.title.toLowerCase() === inputValue.toLowerCase(),
+    )
+    this.setState({jobDetails: filteredList})
   }
 
   getUpDatedData = data => {
@@ -125,7 +143,7 @@ class Jobs extends Component {
   )
 
   renderJobDetailsPage = () => {
-    const {jobDetails, profileDetails} = this.state
+    const {jobDetails, profileDetails, inputValue} = this.state
 
     const {name, profileImageUrl, shortBio} = profileDetails
     return (
@@ -141,7 +159,21 @@ class Jobs extends Component {
             <h1 className="heading-1">Type Of Employment</h1>
             <ul>
               {employmentTypesList.map(eachItem => (
-                <li key={eachItem.employmentTypeId}>{eachItem.label}</li>
+                <li
+                  key={eachItem.employmentTypeId}
+                  onClick={this.onClickEmploymentList}
+                >
+                  <input
+                    className="emp-check-box"
+                    type="checkbox"
+                    id={eachItem.employmentTypeId}
+                    name={eachItem.employmentTypeId}
+                    value={eachItem.label}
+                  />
+                  <label htmlFor={eachItem.employmentTypeId}>
+                    {eachItem.label}
+                  </label>
+                </li>
               ))}
             </ul>
           </div>
@@ -162,8 +194,16 @@ class Jobs extends Component {
               type="search"
               placeholder="Search"
               className="input-search"
+              onChange={this.onChangeSearchValue}
+              value={inputValue}
             />
-            <AiOutlineSearch className="search-icon" />
+            <button
+              className="search-button"
+              type="button"
+              onClick={this.onClickSearchButton}
+            >
+              <AiOutlineSearch className="search-icon" />
+            </button>
           </div>
           <div>
             {jobDetails.map(eachItem => (
