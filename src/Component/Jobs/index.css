@@ -83,7 +83,7 @@ hr {
   color: white;
   background-color: #7e858e;
   border: 1px solid #cbd5e1;
-  margin-top: 10px;
+  margin-top: 0px;
   width: 40px;
   height: 30px;
   border-left: 0px;
@@ -92,4 +92,9 @@ hr {
   display: flex;
   flex-direction: column;
   background-color: #2c364c;
+}
+.search-button {
+  border: 0px;
+  background-color: transparent;
+  padding-left: 0px;
 }
