@@ -41,3 +41,37 @@
   margin-top: 0px;
   margin-left: 5px;
 }
+.location-internship-salary-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+.location-internship-container {
+  display: flex;
+  flex-direction: row;
+}
+.employment-location-container {
+  display: flex;
+  flex-direction: row;
+  margin-left: 10px;
+}
+.employment-location-text {
+  font-size: 10px;
+  margin-top: 0px;
+  margin-left: 5px;
+}
+.package-text {
+  font-size: 10px;
+  margin-top: 0px;
+}
+.description-heading {
+  font-size: 15px;
+  font-family: 'Roboto';
+  margin-bottom: 0px;
+  margin-top: 0px;
+}
+.description-para {
+  font-size: 10px;
+  font-family: 'Roboto';
+}
