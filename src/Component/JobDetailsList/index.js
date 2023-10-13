@@ -1,10 +1,11 @@
 import {AiFillStar} from 'react-icons/ai'
 import {GoLocation} from 'react-icons/go'
+import {BsFillBriefcaseFill} from 'react-icons/bs'
 
 import './index.css'
 
 const JobDetailsList = props => {
-  const {jobDetailsItem} = props
+  const {jobDetailsItems} = props
   const {
     companyLogoUrl,
     employmentType,
@@ -14,8 +15,8 @@ const JobDetailsList = props => {
     packagePerAnnum,
     rating,
     title,
-  } = jobDetailsItem
-  console.log(jobDetailsItem)
+  } = jobDetailsItems
+  console.log(jobDetailsItems)
   return (
     <div className="job-details-container">
       <div className="logo-title-rating-container">
@@ -31,17 +32,20 @@ const JobDetailsList = props => {
 
       <div className="location-internship-salary-container">
         <div className="location-internship-container">
-          <div className="location-container">
+          <div className="employment-location-container">
             <GoLocation className="location-icon" />
-            <p className="location-text">{location}</p>
+            <p className="employment-location-text">{location}</p>
           </div>
-          <div className="employment-type-container">
-            <p className="employment-type-text">{employmentType}</p>
+          <div className="employment-location-container">
+            <BsFillBriefcaseFill />
+            <p className="employment-location-text">{employmentType}</p>
           </div>
         </div>
         <p className="package-text">{packagePerAnnum}</p>
       </div>
       <hr />
+      <p className="description-heading">Description</p>
+      <p className="description-para">{jobDescription}</p>
     </div>
   )
 }
